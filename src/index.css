@@ -1,3 +1,13 @@
+@font-face {
+  font-family: SF-Pro-Display-Semibold;
+  src: url(/src/fonts/SF-Pro-Display-Semibold.otf);
+}
+
+@font-face {
+  font-family: SF-Pro-Display-Regular;
+  src: url(/src/fonts/SF-Pro-Display-Regular.otf);
+}
+
 html {
   box-sizing: border-box;
 }
