@@ -6,7 +6,7 @@ const Main = styled.div`
   background-color: #f8f9fb;
 
   margin-top: 60px;
-  padding: 30px;
+  padding: 30px 60px;
 `;
 
 export default Main;
