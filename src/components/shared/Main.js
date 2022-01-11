@@ -5,7 +5,7 @@ const Main = styled.div`
   min-height: calc(100vh - 60px);
   background-color: #f8f9fb;
 
-  margin-top: 60px;
+  margin-top: 70px;
   padding: 30px 60px;
 `;
 

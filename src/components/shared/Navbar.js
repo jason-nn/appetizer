@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   width: 100vw;
-  height: 60px;
+  height: 70px;
   background-color: white;
 
   position: fixed;
@@ -21,25 +21,33 @@ const Container = styled.div`
 const Left = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
 
   font-family: 'SF-Pro-Display-Semibold', Helvetica, sans-serif;
-  font-size: 25px;
-  color: #4f42ec;
+  font-size: 40px;
+  color: #d85140;
+
+  img {
+    width: 40px;
+    height: auto;
+  }
 `;
 
 const Right = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 30px;
 
   font-family: 'SF-Pro-Display-Regular', Helvetica, sans-serif;
-  font-size: 15px;
-  color: #4f42ec;
+  font-size: 16px;
 
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  a:hover {
+    color: #d85140;
   }
 `;
 
@@ -47,7 +55,8 @@ export default function Navbar() {
   return (
     <Container>
       <Left>
-        <p>App Name</p>
+        <img src="logo.svg" alt="" />
+        <p>ding</p>
       </Left>
       <Right>
         <a href="">Link</a>
