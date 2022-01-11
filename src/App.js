@@ -1,9 +1,13 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export default function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/*  */}
+        {/*  */}
+      </Routes>
+    </BrowserRouter>
   );
 }
