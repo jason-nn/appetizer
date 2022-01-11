@@ -24,11 +24,11 @@ const Left = styled.div`
   gap: 5px;
 
   font-family: 'SF-Pro-Display-Semibold', Helvetica, sans-serif;
-  font-size: 40px;
+  font-size: 35px;
   color: #d85140;
 
   img {
-    width: 40px;
+    width: 35px;
     height: auto;
   }
 `;
@@ -39,7 +39,7 @@ const Right = styled.div`
   gap: 30px;
 
   font-family: 'SF-Pro-Display-Regular', Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
 
   a {
     text-decoration: none;
