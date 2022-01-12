@@ -9,7 +9,6 @@ export const IsLoggedInContext = createContext(null);
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log(isLoggedIn);
 
   return (
     <IsLoggedInContext.Provider
@@ -20,7 +19,7 @@ export default function App() {
     >
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={!isLoggedIn ? <Login /> : <Participate />} />
           <Route path="/participate" element={<Participate />} />
           <Route path="/host" element={<Host />} />
         </Routes>

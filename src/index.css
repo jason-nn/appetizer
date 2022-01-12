@@ -44,3 +44,20 @@ button {
 
   cursor: pointer;
 }
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  border: 1px solid #ccc;
+
+  font-family: 'CircularStd-Book', Helvetica, sans-serif;
+  padding: 0.5em 1.5em;
+  border-radius: 100px;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus {
+  outline: none;
+  border: 1px solid #a83232;
+}
