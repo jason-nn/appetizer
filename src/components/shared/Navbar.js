@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 const Container = styled.div`
   width: 100vw;
   height: 70px;
@@ -55,6 +57,10 @@ const Right = styled.div`
   a:hover {
     color: #a83232;
   }
+
+  button:hover {
+    color: white;
+  }
 `;
 
 export default function Navbar() {
@@ -65,9 +71,12 @@ export default function Navbar() {
         <p>parapol</p>
       </Left>
       <Right>
-        <a href="">Link</a>
-        <a href="">Link</a>
-        <a href="">Link</a>
+        <Link to="/participate">Participate</Link>
+        <Link to="/host">Host</Link>
+
+        <Link to="/">
+          <button>Sign out</button>
+        </Link>
       </Right>
     </Container>
   );
