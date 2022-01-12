@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
+
+import { IsLoggedInContext } from '../../App';
 
 const Container = styled.div`
   width: 100vw;
@@ -64,20 +66,31 @@ const Right = styled.div`
 `;
 
 export default function Navbar() {
+  const context = useContext(IsLoggedInContext);
+
   return (
     <Container>
       <Left>
         <img src="logo.png" alt="" />
         <p>parapol</p>
       </Left>
-      <Right>
-        <Link to="/participate">Participate</Link>
-        <Link to="/host">Host</Link>
 
-        <Link to="/">
-          <button>Sign out</button>
-        </Link>
-      </Right>
+      {context.isLoggedIn ? (
+        <Right>
+          <Link to="/participate">Participate</Link>
+          <Link to="/host">Host</Link>
+
+          <Link to="/">
+            <button
+              onClick={() => {
+                context.setIsLoggedIn(false);
+              }}
+            >
+              Sign out
+            </button>
+          </Link>
+        </Right>
+      ) : null}
     </Container>
   );
 }
