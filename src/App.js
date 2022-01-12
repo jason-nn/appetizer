@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Login from './pages/Login';
@@ -8,7 +8,13 @@ import Host from './pages/Host';
 export const IsLoggedInContext = createContext(null);
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.isLoggedIn ? localStorage.isLoggedIn : false
+  );
+
+  useEffect(() => {
+    localStorage.isLoggedIn = isLoggedIn;
+  }, [isLoggedIn]);
 
   return (
     <IsLoggedInContext.Provider

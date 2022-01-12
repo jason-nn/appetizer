@@ -5,6 +5,7 @@ import Main from '../components/shared/Main';
 import Navbar from '../components/shared/Navbar';
 
 import { IsLoggedInContext } from '../App';
+import { accounts } from '../data/accounts';
 
 const Container = styled.div`
   background-color: white;
@@ -54,6 +55,15 @@ export default function Login() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
+  const validate = (email, password) => {
+    for (const account of accounts) {
+      if (account.email === email && account.password === password) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   return (
     <div>
       <Navbar />
@@ -63,10 +73,7 @@ export default function Login() {
             onSubmit={(e) => {
               e.preventDefault();
 
-              if (
-                emailRef.current.value === 'jason@parapol.ph' &&
-                passwordRef.current.value === 'password'
-              ) {
+              if (validate(emailRef.current.value, passwordRef.current.value)) {
                 context.setIsLoggedIn(true);
               } else {
               }
