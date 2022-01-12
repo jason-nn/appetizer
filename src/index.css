@@ -1,11 +1,21 @@
 @font-face {
-  font-family: SF-Pro-Display-Semibold;
-  src: url(/src/fonts/SF-Pro-Display-Semibold.otf);
+  font-family: CircularStd-Black;
+  src: url(/src/fonts/CircularStd-Black.otf);
 }
 
 @font-face {
-  font-family: SF-Pro-Display-Regular;
-  src: url(/src/fonts/SF-Pro-Display-Regular.otf);
+  font-family: CircularStd-Bold;
+  src: url(/src/fonts/CircularStd-Bold.otf);
+}
+
+@font-face {
+  font-family: CircularStd-Book;
+  src: url(/src/fonts/CircularStd-Book.otf);
+}
+
+@font-face {
+  font-family: CircularStd-Medium;
+  src: url(/src/fonts/CircularStd-Medium.otf);
 }
 
 html {

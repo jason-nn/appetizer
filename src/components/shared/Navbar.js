@@ -23,7 +23,7 @@ const Left = styled.div`
   align-items: center;
   gap: 10px;
 
-  font-family: 'SF-Pro-Display-Semibold', Helvetica, sans-serif;
+  font-family: 'CircularStd-Black', Helvetica, sans-serif;
   font-size: 35px;
 
   p {
@@ -34,7 +34,7 @@ const Left = styled.div`
   }
 
   img {
-    width: 60px;
+    width: 50px;
     height: auto;
   }
 `;
@@ -44,7 +44,7 @@ const Right = styled.div`
   align-items: center;
   gap: 30px;
 
-  font-family: 'SF-Pro-Display-Regular', Helvetica, sans-serif;
+  font-family: 'CircularStd-Book', Helvetica, sans-serif;
   font-size: 15px;
 
   a {
@@ -53,7 +53,7 @@ const Right = styled.div`
   }
 
   a:hover {
-    color: #d85140;
+    color: #a83232;
   }
 `;
 
