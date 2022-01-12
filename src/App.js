@@ -7,12 +7,17 @@ import Host from './pages/Host';
 
 import Toast from './components/shared/Toast';
 
-export const IsLoggedInContext = createContext(null);
+import { raffles } from './data/raffles';
+
+export const Context = createContext(null);
 
 export default function App() {
   const [message, setMessage] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.isLoggedIn ? localStorage.isLoggedIn !== 'false' : false
+  );
+  const [rafflesArray, setRafflesArray] = useState(
+    localStorage.rafflesArray ? JSON.parse(localStorage.rafflesArray) : raffles
   );
 
   const setAndClearMessage = (message) => {
@@ -27,37 +32,31 @@ export default function App() {
     localStorage.isLoggedIn = isLoggedIn;
   }, [isLoggedIn]);
 
+  useEffect(() => {
+    localStorage.rafflesArray = JSON.stringify(rafflesArray);
+  }, [rafflesArray]);
+
+  console.log(raffles);
+
   return (
-    <IsLoggedInContext.Provider
+    <Context.Provider
       value={{
         isLoggedIn,
         setIsLoggedIn,
+        setMessage: setAndClearMessage,
+        rafflesArray,
+        setRafflesArray,
       }}
     >
       {message ? <Toast message={message} /> : null}
 
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={
-              !isLoggedIn ? (
-                <Login setMessage={setAndClearMessage} />
-              ) : (
-                <Participate setMessage={setAndClearMessage} />
-              )
-            }
-          />
-          <Route
-            path="/participate"
-            element={<Participate setMessage={setAndClearMessage} />}
-          />
-          <Route
-            path="/host"
-            element={<Host setMessage={setAndClearMessage} />}
-          />
+          <Route path="/" element={!isLoggedIn ? <Login /> : <Participate />} />
+          <Route path="/participate" element={<Participate />} />
+          <Route path="/host" element={<Host />} />
         </Routes>
       </BrowserRouter>
-    </IsLoggedInContext.Provider>
+    </Context.Provider>
   );
 }

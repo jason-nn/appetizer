@@ -3,10 +3,10 @@ import React, { useContext } from 'react';
 import Main from '../components/shared/Main';
 import Navbar from '../components/shared/Navbar';
 
-import { IsLoggedInContext } from '../App';
+import { Context } from '../App';
 
-export default function Host({ setMessage }) {
-  const context = useContext(IsLoggedInContext);
+export default function Host() {
+  const context = useContext(Context);
 
   return (
     <div>

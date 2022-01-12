@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-import { IsLoggedInContext } from '../../App';
+import { Context } from '../../App';
 
 const Container = styled.div`
   width: 100vw;
@@ -66,7 +66,7 @@ const Right = styled.div`
 `;
 
 export default function Navbar() {
-  const context = useContext(IsLoggedInContext);
+  const context = useContext(Context);
 
   return (
     <Container>

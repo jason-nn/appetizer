@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Main from '../components/shared/Main';
 import Navbar from '../components/shared/Navbar';
 
-import { IsLoggedInContext } from '../App';
+import { Context } from '../App';
 import { accounts } from '../data/accounts';
 
 const Container = styled.div`
@@ -49,8 +49,8 @@ const Container = styled.div`
   }
 `;
 
-export default function Login({ setMessage }) {
-  const context = useContext(IsLoggedInContext);
+export default function Login() {
+  const context = useContext(Context);
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -75,9 +75,9 @@ export default function Login({ setMessage }) {
 
               if (validate(emailRef.current.value, passwordRef.current.value)) {
                 context.setIsLoggedIn(true);
-                setMessage('Successful sign in');
+                context.setMessage('Successful sign in');
               } else {
-                setMessage('Invalid credentials');
+                context.setMessage('Invalid credentials');
               }
             }}
           >
