@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Main from '../../components/shared/Main';
-import Navbar from '../../components/shared/Navbar';
+import Main from '../components/shared/Main';
+import Navbar from '../components/shared/Navbar';
 
 export default function Login() {
   return (

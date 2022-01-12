@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Login from './pages/shared/Login';
-import Participate from './pages/participate/Participate';
-import Host from './pages/host/Host';
+import Login from './pages/Login';
+import Participate from './pages/Participate';
+import Host from './pages/Host';
 
 export default function App() {
   return (

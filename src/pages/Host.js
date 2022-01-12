@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Main from '../../components/shared/Main';
-import Navbar from '../../components/shared/Navbar';
+import Main from '../components/shared/Main';
+import Navbar from '../components/shared/Navbar';
 
 export default function Host() {
   return (
