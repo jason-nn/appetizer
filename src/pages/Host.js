@@ -5,7 +5,7 @@ import Navbar from '../components/shared/Navbar';
 
 import { IsLoggedInContext } from '../App';
 
-export default function Host() {
+export default function Host({ setMessage }) {
   const context = useContext(IsLoggedInContext);
 
   return (

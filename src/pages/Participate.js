@@ -5,7 +5,7 @@ import Navbar from '../components/shared/Navbar';
 
 import { IsLoggedInContext } from '../App';
 
-export default function Participate() {
+export default function Participate({ setMessage }) {
   const context = useContext(IsLoggedInContext);
 
   return (
@@ -15,6 +15,7 @@ export default function Participate() {
         {context.isLoggedIn ? (
           <div>
             <h1>Participate</h1>
+            <h1>{context.isLoggedIn}</h1>
             {/* remove filler h1 and add your content here */}
           </div>
         ) : null}

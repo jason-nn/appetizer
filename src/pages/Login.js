@@ -49,7 +49,7 @@ const Container = styled.div`
   }
 `;
 
-export default function Login() {
+export default function Login({ setMessage }) {
   const context = useContext(IsLoggedInContext);
 
   const emailRef = useRef(null);
@@ -75,7 +75,9 @@ export default function Login() {
 
               if (validate(emailRef.current.value, passwordRef.current.value)) {
                 context.setIsLoggedIn(true);
+                setMessage('Successful sign in');
               } else {
+                setMessage('Invalid credentials');
               }
             }}
           >
