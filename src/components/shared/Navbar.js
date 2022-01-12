@@ -21,14 +21,20 @@ const Container = styled.div`
 const Left = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 
   font-family: 'SF-Pro-Display-Semibold', Helvetica, sans-serif;
   font-size: 35px;
-  color: #d85140;
+
+  p {
+    background-image: linear-gradient(35deg, #a83232, #ff5b5b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 
   img {
-    width: 35px;
+    width: 60px;
     height: auto;
   }
 `;
@@ -55,8 +61,8 @@ export default function Navbar() {
   return (
     <Container>
       <Left>
-        <img src="logo.svg" alt="" />
-        <p>Parapol</p>
+        <img src="logo.png" alt="" />
+        <p>parapol</p>
       </Left>
       <Right>
         <a href="">Link</a>
