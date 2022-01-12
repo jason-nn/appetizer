@@ -56,7 +56,7 @@ export default function Navbar() {
     <Container>
       <Left>
         <img src="logo.svg" alt="" />
-        <p>ding</p>
+        <p>Parapol</p>
       </Left>
       <Right>
         <a href="">Link</a>
