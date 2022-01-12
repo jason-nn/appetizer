@@ -1,5 +1,4 @@
 import React, { useContext, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Main from '../components/shared/Main';
@@ -16,8 +15,6 @@ const Container = styled.div`
 
   border-radius: 8px;
   margin-top: 50px;
-
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 
   p {
     margin-bottom: 0.5em;
