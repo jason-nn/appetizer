@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Participate from './pages/Participate';
 import Host from './pages/Host';
+import Account from './pages/Account';
 
 import Toast from './components/shared/Toast';
 
@@ -55,6 +56,7 @@ export default function App() {
           <Route path="/" element={!isLoggedIn ? <Login /> : <Participate />} />
           <Route path="/participate" element={<Participate />} />
           <Route path="/host" element={<Host />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </BrowserRouter>
     </Context.Provider>

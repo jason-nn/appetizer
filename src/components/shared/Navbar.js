@@ -79,6 +79,7 @@ export default function Navbar() {
         <Right>
           <Link to="/participate">Participate</Link>
           <Link to="/host">Host</Link>
+          <Link to="/account">Account</Link>
 
           <Link to="/">
             <button
