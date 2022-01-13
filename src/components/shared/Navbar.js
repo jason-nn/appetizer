@@ -55,11 +55,11 @@ const Right = styled.div`
   a {
     text-decoration: none;
     color: inherit;
+    border-bottom: 1px solid white;
   }
 
   a:hover {
     color: #a83232;
-    border-bottom: 1px solid #a83232;
   }
 
   button:hover {
@@ -87,7 +87,7 @@ export default function Navbar() {
           <NavLink to="/host">Host</NavLink>
           <NavLink to="/account">Account</NavLink>
 
-          <NavLink to="/">
+          <NavLink to="/" className={(isActive) => (isActive ? '' : '')}>
             <button
               onClick={() => {
                 context.setCurrentUser(null);
