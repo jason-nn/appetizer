@@ -85,8 +85,9 @@ export default function Navbar() {
           <Link to="/">
             <button
               onClick={() => {
-                context.setMessage('Successful sign out');
+                context.setCurrentUser(null);
                 context.setIsLoggedIn(false);
+                context.setMessage('Successful sign out');
               }}
             >
               Sign out

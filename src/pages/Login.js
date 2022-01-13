@@ -59,6 +59,7 @@ export default function Login() {
   const validate = (email, password) => {
     for (const account of accounts) {
       if (account.email === email && account.password === password) {
+        context.setCurrentUser(account);
         return true;
       }
     }
