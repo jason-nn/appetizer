@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { Context } from '../../App';
 
@@ -59,10 +59,15 @@ const Right = styled.div`
 
   a:hover {
     color: #a83232;
+    border-bottom: 1px solid #a83232;
   }
 
   button:hover {
     color: white;
+  }
+
+  .active {
+    border-bottom: 1px solid black;
   }
 `;
 
@@ -78,11 +83,11 @@ export default function Navbar() {
 
       {context.isLoggedIn ? (
         <Right>
-          <Link to="/participate">Participate</Link>
-          <Link to="/host">Host</Link>
-          <Link to="/account">Account</Link>
+          <NavLink to="/participate">Participate</NavLink>
+          <NavLink to="/host">Host</NavLink>
+          <NavLink to="/account">Account</NavLink>
 
-          <Link to="/">
+          <NavLink to="/">
             <button
               onClick={() => {
                 context.setCurrentUser(null);
@@ -92,7 +97,7 @@ export default function Navbar() {
             >
               Sign out
             </button>
-          </Link>
+          </NavLink>
         </Right>
       ) : null}
     </Container>

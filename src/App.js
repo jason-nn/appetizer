@@ -22,7 +22,6 @@ export default function App() {
     localStorage.rafflesArray ? JSON.parse(localStorage.rafflesArray) : raffles
   );
   const [currentUser, setCurrentUser] = useState(null);
-  console.log(currentUser);
 
   const [accountsArray, setAccountsArray] = useState(
     localStorage.accountsArray
