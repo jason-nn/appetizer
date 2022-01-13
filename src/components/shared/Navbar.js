@@ -83,6 +83,7 @@ export default function Navbar() {
           <Link to="/">
             <button
               onClick={() => {
+                context.setMessage('Successful sign out');
                 context.setIsLoggedIn(false);
               }}
             >
