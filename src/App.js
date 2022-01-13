@@ -39,7 +39,7 @@ export default function App() {
     }, 2000);
   };
 
-  const numToUSD = (num) => {
+  const toCurrency = (num) => {
     return Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -75,7 +75,7 @@ export default function App() {
         setAccountsArray,
         currentUser,
         setCurrentUser,
-        numToUSD,
+        toCurrency,
       }}
     >
       {message ? <Toast message={message} /> : null}

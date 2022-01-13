@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
 import Main from '../components/shared/Main';
 import Navbar from '../components/shared/Navbar';
+import Modal from '../components/shared/Modal';
 
 import { Context } from '../App';
 
@@ -36,6 +37,8 @@ const Balance = styled.p`
 export default function Account() {
   const context = useContext(Context);
 
+  const [isOpen, setIsOpen] = useState(false);
+
   console.log(context.currentUser);
   return (
     <div>
@@ -43,12 +46,15 @@ export default function Account() {
       <Main>
         {context.isLoggedIn ? (
           <div>
+            <Modal isOpen={isOpen} setIsOpen={setIsOpen}></Modal>
             <Box>
               <Header>Balance</Header>
               <br />
-              <Balance>{context.numToUSD(context.currentUser.balance)}</Balance>
+              <Balance>
+                {context.toCurrency(context.currentUser.balance)}
+              </Balance>
               <br />
-              <button>Add Funds</button>
+              <button onClick={() => setIsOpen(true)}>Add funds</button>
             </Box>
           </div>
         ) : null}
