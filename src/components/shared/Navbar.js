@@ -60,6 +60,7 @@ const Right = styled.div`
 
   a:hover {
     color: #a83232;
+    border-bottom: 1px solid #a83232;
   }
 
   button:hover {
@@ -68,6 +69,13 @@ const Right = styled.div`
 
   .active {
     border-bottom: 1px solid black;
+  }
+
+  .no-border {
+    border-bottom: 1px solid white;
+    :hover {
+      border-bottom: 1px solid white;
+    }
   }
 `;
 
@@ -87,7 +95,7 @@ export default function Navbar() {
           <NavLink to="/host">Host</NavLink>
           <NavLink to="/account">Account</NavLink>
 
-          <NavLink to="/" className={(isActive) => (isActive ? '' : '')}>
+          <NavLink to="/" className="no-border">
             <button
               onClick={() => {
                 context.setCurrentUser(null);

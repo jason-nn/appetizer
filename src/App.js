@@ -21,7 +21,9 @@ export default function App() {
   const [rafflesArray, setRafflesArray] = useState(
     localStorage.rafflesArray ? JSON.parse(localStorage.rafflesArray) : raffles
   );
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(
+    localStorage.currentUser ? JSON.parse(localStorage.currentUser) : null
+  );
 
   const [accountsArray, setAccountsArray] = useState(
     localStorage.accountsArray
@@ -37,6 +39,14 @@ export default function App() {
     }, 2000);
   };
 
+  const numToUSD = (num) => {
+    return Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+    }).format(num);
+  };
+
   useEffect(() => {
     localStorage.isLoggedIn = isLoggedIn;
   }, [isLoggedIn]);
@@ -48,6 +58,10 @@ export default function App() {
   useEffect(() => {
     localStorage.accountsArray = JSON.stringify(accountsArray);
   }, [accountsArray]);
+
+  useEffect(() => {
+    localStorage.currentUser = JSON.stringify(currentUser);
+  }, [currentUser]);
 
   return (
     <Context.Provider
@@ -61,6 +75,7 @@ export default function App() {
         setAccountsArray,
         currentUser,
         setCurrentUser,
+        numToUSD,
       }}
     >
       {message ? <Toast message={message} /> : null}
