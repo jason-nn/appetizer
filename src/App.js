@@ -9,6 +9,7 @@ import Account from './pages/Account';
 import Toast from './components/shared/Toast';
 
 import { raffles } from './data/raffles';
+import { accounts } from './data/accounts';
 
 export const Context = createContext(null);
 
@@ -19,6 +20,12 @@ export default function App() {
   );
   const [rafflesArray, setRafflesArray] = useState(
     localStorage.rafflesArray ? JSON.parse(localStorage.rafflesArray) : raffles
+  );
+
+  const [accountsArray, setAccountsArray] = useState(
+    localStorage.accountsArray
+      ? JSON.parse(localStorage.accountsArray)
+      : accounts
   );
 
   const setAndClearMessage = (message) => {
@@ -37,7 +44,9 @@ export default function App() {
     localStorage.rafflesArray = JSON.stringify(rafflesArray);
   }, [rafflesArray]);
 
-  console.log(raffles);
+  useEffect(() => {
+    localStorage.accountsArray = JSON.stringify(accountsArray);
+  }, [accountsArray]);
 
   return (
     <Context.Provider
@@ -47,6 +56,8 @@ export default function App() {
         setMessage: setAndClearMessage,
         rafflesArray,
         setRafflesArray,
+        accountsArray,
+        setAccountsArray,
       }}
     >
       {message ? <Toast message={message} /> : null}
