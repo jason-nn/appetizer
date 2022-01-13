@@ -55,6 +55,8 @@ input[type='password'] {
   border: 1px solid #ccc;
 
   font-family: 'CircularStd-Book', Helvetica, sans-serif;
+  font-size: 15px;
+
   padding: 0.5em 1.5em;
   border-radius: 100px;
 }

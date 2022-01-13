@@ -20,6 +20,7 @@ const Container = styled.div`
   justify-content: space-between;
 
   padding: 0px 60px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 `;
 
 const Left = styled.div`

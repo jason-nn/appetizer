@@ -16,6 +16,7 @@ const Container = styled.div`
 
   border-radius: 8px;
   margin-top: 50px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 
   p {
     margin-bottom: 0.5em;
@@ -85,6 +86,7 @@ export default function Login() {
 
             <br />
             <br />
+            <br />
 
             <div>
               <p>Email</p>
@@ -92,12 +94,14 @@ export default function Login() {
             </div>
 
             <br />
+            <br />
 
             <div>
               <p>Password</p>
               <input type="password" ref={passwordRef} />
             </div>
 
+            <br />
             <br />
             <br />
 
