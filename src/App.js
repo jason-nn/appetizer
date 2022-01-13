@@ -21,6 +21,7 @@ export default function App() {
   const [rafflesArray, setRafflesArray] = useState(
     localStorage.rafflesArray ? JSON.parse(localStorage.rafflesArray) : raffles
   );
+  const [currentUser, setCurrentUser] = useState(null);
 
   const [accountsArray, setAccountsArray] = useState(
     localStorage.accountsArray
@@ -58,6 +59,8 @@ export default function App() {
         setRafflesArray,
         accountsArray,
         setAccountsArray,
+        currentUser,
+        setCurrentUser,
       }}
     >
       {message ? <Toast message={message} /> : null}
