@@ -23,6 +23,10 @@ const Grid = styled.div`
 const LeftPanel = styled.div`
   padding: 30px 60px;
 
+  position: sticky; // See link
+  top: 70px; //to make it stick to the top of the screen
+  height: calc(100vh - 70px); // make the height equal to 100 view height
+
   p {
     font-family: 'CircularStd-Medium', Helvetica, sans-serif;
     font-size: 20px;
@@ -51,7 +55,9 @@ const LeftPanel = styled.div`
   }
 `;
 
-const RightPanel = styled.div``;
+const RightPanel = styled.div`
+  overflow: scroll;
+`;
 
 export default function Host() {
   const context = useContext(Context);
