@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import { Context } from '../../App';
-import { raffles } from '../../data/raffles';
 
 const Container = styled.div`
   background-color: white;
