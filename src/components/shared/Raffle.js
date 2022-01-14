@@ -17,16 +17,15 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
-  background-image: linear-gradient(35deg, #a83232, #ff5b5b);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-
   font-family: 'CircularStd-Black', Helvetica, sans-serif;
   font-size: 25px;
 `;
 
 const TicketPrice = styled.div`
+  background-image: linear-gradient(35deg, #a83232, #ff5b5b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   font-family: 'CircularStd-Black', Helvetica, sans-serif;
   font-size: 30px;
 
@@ -39,6 +38,8 @@ const Footer = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  color: gray;
 `;
 
 export default function Raffle({
