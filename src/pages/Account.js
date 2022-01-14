@@ -51,24 +51,6 @@ export default function Account() {
 
   const amountRef = useRef(null);
 
-  const findUserIndex = () => {
-    for (let i = 0; i < context.accountsArray.length; i++) {
-      if (context.currentUser.email === context.accountsArray[i].email) {
-        return i;
-      }
-    }
-  };
-
-  const addFunds = (amount) => {
-    const index = findUserIndex();
-
-    const accountsArrayCopy = [...context.accountsArray];
-    accountsArrayCopy[index].balance += amount;
-
-    context.setAccountsArray(accountsArrayCopy);
-    context.setCurrentUser(accountsArrayCopy[index]);
-  };
-
   return (
     <div>
       <Navbar />
@@ -83,7 +65,7 @@ export default function Account() {
 
                   const amount = amountRef.current.value;
 
-                  addFunds(parseFloat(amount));
+                  context.addFunds(parseFloat(amount));
                   setIsOpen(false);
                   amountRef.current.value = null;
                   context.setMessage(

@@ -8,7 +8,7 @@ const Container = styled.div`
   padding: 30px 60px;
 `;
 
-export default function Raffles() {
+export default function Raffles({ onClick }) {
   const context = useContext(Context);
 
   return (
@@ -21,6 +21,7 @@ export default function Raffles() {
           return (
             <Raffle
               key={raffle.id}
+              id={raffle.id}
               title={raffle.title}
               type={raffle.type}
               prize={raffle.prize}
@@ -28,6 +29,8 @@ export default function Raffles() {
               ticketsAllocated={raffle.ticketsAllocated}
               ticketsSold={raffle.ticketsSold}
               hostedBy={raffle.hostedBy}
+              showPurchaseButton={true}
+              onClick={onClick}
             />
           );
         })}

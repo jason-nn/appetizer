@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useMemo } from 'react';
 import styled from 'styled-components';
 
 import Main from '../components/shared/Main';
 import Navbar from '../components/shared/Navbar';
+import Modal from '../components/shared/Modal';
 
 import Raffles from '../components/participate/Raffles';
 import Purchases from '../components/participate/Purchases';
@@ -63,34 +64,57 @@ export default function Host() {
   const context = useContext(Context);
 
   const [showBrowseRaffles, setShowBrowseRaffles] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedRaffleIndex, setSelectedRaffleIndex] = useState(null);
+
+  const selectedRaffle = useMemo(() => {
+    for (let raffle of context.rafflesArray) {
+      if (raffle.id === selectedRaffleIndex) {
+        return raffle;
+      }
+    }
+  }, [selectedRaffleIndex]);
 
   return (
     <div>
       <Navbar />
       {context.isLoggedIn ? (
-        <Grid>
-          <LeftPanel>
-            <p
-              onClick={() => {
-                setShowBrowseRaffles(true);
-              }}
-              className={showBrowseRaffles ? 'selected' : null}
-            >
-              Browse raffles
-            </p>
-            <p
-              onClick={() => {
-                setShowBrowseRaffles(false);
-              }}
-              className={showBrowseRaffles ? null : 'selected'}
-            >
-              Purchases
-            </p>
-          </LeftPanel>
-          <RightPanel>
-            {showBrowseRaffles ? <Raffles /> : <Purchases />}
-          </RightPanel>
-        </Grid>
+        <div>
+          <Modal isOpen={isOpen} setIsOpen={setIsOpen}></Modal>
+
+          <Grid>
+            <LeftPanel>
+              <p
+                onClick={() => {
+                  setShowBrowseRaffles(true);
+                }}
+                className={showBrowseRaffles ? 'selected' : null}
+              >
+                Browse raffles
+              </p>
+              <p
+                onClick={() => {
+                  setShowBrowseRaffles(false);
+                }}
+                className={showBrowseRaffles ? null : 'selected'}
+              >
+                Purchases
+              </p>
+            </LeftPanel>
+            <RightPanel>
+              {showBrowseRaffles ? (
+                <Raffles
+                  onClick={(i) => {
+                    setIsOpen(true);
+                    setSelectedRaffleIndex(i);
+                  }}
+                />
+              ) : (
+                <Purchases />
+              )}
+            </RightPanel>
+          </Grid>
+        </div>
       ) : (
         <Main />
       )}

@@ -47,6 +47,24 @@ export default function App() {
     }).format(num);
   };
 
+  const findUserIndex = () => {
+    for (let i = 0; i < accountsArray.length; i++) {
+      if (currentUser.email === accountsArray[i].email) {
+        return i;
+      }
+    }
+  };
+
+  const addFunds = (amount) => {
+    const index = findUserIndex();
+
+    const accountsArrayCopy = [...accountsArray];
+    accountsArrayCopy[index].balance += amount;
+
+    setAccountsArray(accountsArrayCopy);
+    setCurrentUser(accountsArrayCopy[index]);
+  };
+
   useEffect(() => {
     localStorage.isLoggedIn = isLoggedIn;
   }, [isLoggedIn]);
@@ -76,6 +94,7 @@ export default function App() {
         currentUser,
         setCurrentUser,
         toCurrency,
+        addFunds,
       }}
     >
       {message ? <Toast message={message} /> : null}
