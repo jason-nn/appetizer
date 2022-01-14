@@ -62,7 +62,7 @@ const RightPanel = styled.div`
 export default function Host() {
   const context = useContext(Context);
 
-  const [showHostedRaffles, setShowHostedRaffles] = useState(false);
+  const [showHostedRaffles, setShowHostedRaffles] = useState(true);
 
   return (
     <div>
@@ -72,19 +72,19 @@ export default function Host() {
           <LeftPanel>
             <p
               onClick={() => {
-                setShowHostedRaffles(false);
-              }}
-              className={showHostedRaffles ? null : 'selected'}
-            >
-              Host a new raffle
-            </p>
-            <p
-              onClick={() => {
                 setShowHostedRaffles(true);
               }}
               className={showHostedRaffles ? 'selected' : null}
             >
               Hosted raffles
+            </p>
+            <p
+              onClick={() => {
+                setShowHostedRaffles(false);
+              }}
+              className={showHostedRaffles ? null : 'selected'}
+            >
+              Host a new raffle
             </p>
           </LeftPanel>
           <RightPanel>
