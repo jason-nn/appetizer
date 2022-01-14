@@ -24,6 +24,12 @@ const MainContent = styled.div`
   padding-bottom: 50px;
   border-radius: 8px;
   max-width: 90vw;
+
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-family: 'CircularStd-Medium', Helvetica, sans-serif;
+  }
 `;
 
 const Close = styled.div`
@@ -47,7 +53,7 @@ export default function Modal({ isOpen, setIsOpen, children }) {
         <GrayOverlay>
           <MainContent>
             <Close onClick={() => setIsOpen(false)}>
-              <span class="material-icons">close</span>
+              <span className="material-icons">close</span>
             </Close>
             {children}
           </MainContent>

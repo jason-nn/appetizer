@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import styled from 'styled-components';
 
 import Main from '../components/shared/Main';
@@ -34,19 +34,68 @@ const Balance = styled.p`
   font-size: 40px;
 `;
 
+const Centered = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export default function Account() {
   const context = useContext(Context);
 
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(context.currentUser);
+  const amountRef = useRef(null);
+
+  const findUserIndex = () => {
+    for (let i = 0; i < context.accountsArray.length; i++) {
+      if (context.currentUser.email === context.accountsArray[i].email) {
+        return i;
+      }
+    }
+  };
+
+  const addFunds = (amount) => {
+    const index = findUserIndex();
+
+    const accountsArrayCopy = [...context.accountsArray];
+    accountsArrayCopy[index].balance += amount;
+
+    context.setAccountsArray(accountsArrayCopy);
+    context.setCurrentUser(accountsArrayCopy[index]);
+  };
+
   return (
     <div>
       <Navbar />
       <Main>
         {context.isLoggedIn ? (
           <div>
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen}></Modal>
+            <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+              <label>Amount</label>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+
+                  const amount = amountRef.current.value;
+
+                  addFunds(parseFloat(amount));
+                  setIsOpen(false);
+                  amountRef.current.value = null;
+                  context.setMessage(
+                    `Successfully added ${context.toCurrency(amount)}`
+                  );
+                }}
+              >
+                <input type="number" step={0.01} min={0} ref={amountRef} />
+
+                <br />
+                <br />
+
+                <Centered>
+                  <button>Add funds</button>
+                </Centered>
+              </form>
+            </Modal>
             <Box>
               <Header>Balance</Header>
               <br />
