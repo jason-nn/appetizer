@@ -73,7 +73,7 @@ export default function Host() {
         return raffle;
       }
     }
-  }, [selectedRaffleIndex]);
+  }, [selectedRaffleIndex, context.rafflesArray]);
 
   return (
     <div>
