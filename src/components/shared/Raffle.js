@@ -13,6 +13,11 @@ const Container = styled.div`
   margin-bottom: 30px;
 
   position: relative;
+
+  -webkit-animation: swing-in-right-fwd 0.5s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation: swing-in-right-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    both;
 `;
 
 const Header = styled.div`

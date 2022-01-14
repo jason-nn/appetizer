@@ -88,7 +88,7 @@ export default function Host() {
             </p>
           </LeftPanel>
           <RightPanel>
-            {!showHostedRaffles ? <HostRaffle /> : <Raffles />}
+            {showHostedRaffles ? <Raffles /> : <HostRaffle />}
           </RightPanel>
         </Grid>
       ) : (
