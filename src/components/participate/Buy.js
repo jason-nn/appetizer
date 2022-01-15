@@ -57,7 +57,7 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
             purchasedBy: context.currentUser.email,
             raffle: {
               title: raffle.title,
-              price: raffle.ticketPrice,
+              ticketPrice: raffle.ticketPrice,
             },
           },
         ]);
