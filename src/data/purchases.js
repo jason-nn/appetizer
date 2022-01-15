@@ -2,6 +2,7 @@ export const purchases = [
   {
     ticketsBought: 10,
     purchasedBy: 'jason@parapol.ph',
+    purchasedOn: Date.now(),
     raffle: {
       title: 'Appetizer Raffle',
       ticketPrice: 500,
@@ -10,6 +11,7 @@ export const purchases = [
   {
     ticketsBought: 20,
     purchasedBy: 'jason@parapol.ph',
+    purchasedOn: Date.now(),
     raffle: {
       title: 'Main Course Raffle',
       ticketPrice: 400,
@@ -18,6 +20,7 @@ export const purchases = [
   {
     ticketsBought: 10,
     purchasedBy: 'carl@parapol.ph',
+    purchasedOn: Date.now(),
     raffle: {
       title: 'Appetizer Raffle',
       ticketPrice: 500,
@@ -26,6 +29,7 @@ export const purchases = [
   {
     ticketsBought: 5,
     purchasedBy: 'jason@parapol.ph',
+    purchasedOn: Date.now(),
     raffle: {
       title: 'Appetizer Raffle',
       ticketPrice: 500,

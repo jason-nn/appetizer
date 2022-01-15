@@ -40,21 +40,31 @@ const TicketsBought = styled.div`
 
 const TicketPrice = styled.div`
   font-family: 'CircularStd-Medium', Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 15px;
+
+  display: flex;
+  justify-content: space-between;
 
   color: gray;
 
   margin-top: 30px;
 `;
 
-export default function Purchase({ title, price, quantity }) {
+export default function Purchase({ title, price, quantity, purchasedOn }) {
   const context = useContext(Context);
+
+  const formatted = new Date(purchasedOn).toString().split('GMT')[0];
 
   return (
     <Container>
       <Title>{title}</Title>
-      <TicketsBought>{quantity} tickets</TicketsBought>
-      <TicketPrice>{context.toCurrency(price)} each</TicketPrice>
+      <TicketsBought>
+        {quantity} {quantity > 1 ? 'tickets' : 'ticket'}
+      </TicketsBought>
+      <TicketPrice>
+        <span>{context.toCurrency(price)} each</span>
+        <span>{formatted}</span>
+      </TicketPrice>
     </Container>
   );
 }

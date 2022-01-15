@@ -53,6 +53,7 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
           {
             ticketsBought: numberOfTickets,
             purchasedBy: context.currentUser.email,
+            purchasedOn: Date.now(),
             raffle: {
               title: raffle.title,
               ticketPrice: raffle.ticketPrice,

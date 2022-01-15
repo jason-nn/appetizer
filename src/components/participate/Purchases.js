@@ -25,6 +25,7 @@ export default function Purchases() {
               title={purchase.raffle.title}
               price={purchase.raffle.ticketPrice}
               quantity={purchase.ticketsBought}
+              purchasedOn={purchase.purchasedOn}
             />
           );
         })}
