@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect, useMemo } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Login from './pages/Login';
@@ -10,6 +10,7 @@ import Toast from './components/shared/Toast';
 
 import { raffles } from './data/raffles';
 import { accounts } from './data/accounts';
+import { purchases } from './data/purchases';
 
 export const Context = createContext(null);
 
@@ -31,7 +32,11 @@ export default function App() {
       : accounts
   );
 
-  // const [purchasesArray, setPurchasesArray] = useState(initialState);
+  const [purchasesArray, setPurchasesArray] = useState(
+    localStorage.purchasesArray
+      ? JSON.parse(localStorage.purchasesArray)
+      : purchases
+  );
 
   const setAndClearMessage = (message) => {
     setMessage(null);
@@ -105,13 +110,9 @@ export default function App() {
     localStorage.accountsArray = JSON.stringify(accountsArray);
   }, [accountsArray]);
 
-  const dependency = useMemo(() => {
-    return currentUser?.balance ? currentUser.balance : null;
-  }, [currentUser, currentUser.balance]);
-
   useEffect(() => {
     localStorage.currentUser = JSON.stringify(currentUser);
-  }, [currentUser, dependency]);
+  }, [currentUser, currentUser?.balance]);
 
   return (
     <Context.Provider
@@ -130,6 +131,8 @@ export default function App() {
         deductFunds,
         getBalance,
         findRaffleIndex,
+        purchasesArray,
+        setPurchasesArray,
       }}
     >
       {message ? <Toast message={message} /> : null}
