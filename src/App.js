@@ -111,6 +111,10 @@ export default function App() {
   }, [accountsArray]);
 
   useEffect(() => {
+    localStorage.purchasesArray = JSON.stringify(purchasesArray);
+  }, [purchasesArray]);
+
+  useEffect(() => {
     localStorage.currentUser = JSON.stringify(currentUser);
   }, [currentUser, currentUser?.balance]);
 

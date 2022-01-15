@@ -1,6 +1,5 @@
 export const purchases = [
   {
-    id: 1,
     ticketsBought: 10,
     purchasedBy: 'jason@parapol.ph',
     raffle: {
@@ -9,7 +8,6 @@ export const purchases = [
     },
   },
   {
-    id: 2,
     ticketsBought: 20,
     purchasedBy: 'jason@parapol.ph',
     raffle: {
@@ -18,7 +16,6 @@ export const purchases = [
     },
   },
   {
-    id: 3,
     ticketsBought: 10,
     purchasedBy: 'carl@parapol.ph',
     raffle: {
@@ -27,7 +24,6 @@ export const purchases = [
     },
   },
   {
-    id: 3,
     ticketsBought: 5,
     purchasedBy: 'jason@parapol.ph',
     raffle: {

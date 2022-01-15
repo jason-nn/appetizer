@@ -50,6 +50,18 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
 
         context.setRafflesArray(rafflesArrayCopy);
 
+        context.setPurchasesArray([
+          ...context.purchasesArray,
+          {
+            ticketsBought: numberOfTickets,
+            purchasedBy: context.currentUser.email,
+            raffle: {
+              title: selectedRaffle.title,
+              price: selectedRaffle.ticketPrice,
+            },
+          },
+        ]);
+
         context.setMessage(
           `Successfully bought ${numberOfTickets} ${
             numberOfTickets > 1 ? 'tickets' : 'ticket'

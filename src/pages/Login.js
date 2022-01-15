@@ -5,7 +5,6 @@ import Main from '../components/shared/Main';
 import Navbar from '../components/shared/Navbar';
 
 import { Context } from '../App';
-import { accounts } from '../data/accounts';
 
 const Container = styled.div`
   background-color: white;
