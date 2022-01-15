@@ -10,6 +10,7 @@ import Toast from './components/shared/Toast';
 
 import { raffles } from './data/raffles';
 import { accounts } from './data/accounts';
+import { useMemo } from 'react/cjs/react.development';
 
 export const Context = createContext(null);
 
@@ -55,6 +56,16 @@ export default function App() {
     }
   };
 
+  const findRaffleIndex = (raffleId) => {
+    for (let i = 0; i < rafflesArray.length; i++) {
+      if (raffleId === rafflesArray[i].id) {
+        return i;
+      }
+    }
+  };
+
+  console.log(rafflesArray);
+
   const addFunds = (amount) => {
     const index = findUserIndex();
 
@@ -93,9 +104,13 @@ export default function App() {
     localStorage.accountsArray = JSON.stringify(accountsArray);
   }, [accountsArray]);
 
+  const dependency = useMemo(() => {
+    return currentUser?.balance ? currentUser.balance : null;
+  }, [currentUser, currentUser.balance]);
+
   useEffect(() => {
     localStorage.currentUser = JSON.stringify(currentUser);
-  }, [currentUser]);
+  }, [currentUser, dependency]);
 
   return (
     <Context.Provider
@@ -113,6 +128,7 @@ export default function App() {
         addFunds,
         deductFunds,
         getBalance,
+        findRaffleIndex,
       }}
     >
       {message ? <Toast message={message} /> : null}

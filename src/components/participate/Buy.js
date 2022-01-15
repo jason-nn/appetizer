@@ -42,6 +42,14 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
 
         setIsOpen(false);
 
+        const raffleIndex = context.findRaffleIndex(selectedRaffle.id);
+
+        console.log(raffleIndex);
+        const rafflesArrayCopy = [...context.rafflesArray];
+        rafflesArrayCopy[raffleIndex].ticketsSold += numberOfTickets;
+
+        context.setRafflesArray(rafflesArrayCopy);
+
         context.setMessage(
           `Successfully bought ${numberOfTickets} ${
             numberOfTickets > 1 ? 'tickets' : 'ticket'
