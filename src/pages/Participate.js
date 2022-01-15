@@ -7,6 +7,7 @@ import Modal from '../components/shared/Modal';
 
 import Raffles from '../components/participate/Raffles';
 import Purchases from '../components/participate/Purchases';
+import Buy from '../components/participate/Buy';
 
 import { Context } from '../App';
 
@@ -80,7 +81,9 @@ export default function Host() {
       <Navbar />
       {context.isLoggedIn ? (
         <div>
-          <Modal isOpen={isOpen} setIsOpen={setIsOpen}></Modal>
+          <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+            <Buy selectedRaffle={selectedRaffle} />
+          </Modal>
 
           <Grid>
             <LeftPanel>
