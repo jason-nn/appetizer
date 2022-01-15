@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useMemo, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { Context } from '../../App';
@@ -26,10 +26,33 @@ const Total = styled.div`
   margin-bottom: 30px;
 `;
 
-export default function Buy({ selectedRaffle }) {
+export default function Buy({ selectedRaffle, setIsOpen }) {
   const context = useContext(Context);
 
   const [numberOfTickets, setNumberOfTickets] = useState(1);
+
+  const total = useMemo(() => {
+    return numberOfTickets * selectedRaffle.ticketPrice;
+  }, [numberOfTickets]);
+
+  const handleSubmit = useCallback(
+    (numberOfTickets) => {
+      if (total < context.getBalance()) {
+        context.deductFunds(total);
+
+        setIsOpen(false);
+
+        context.setMessage(
+          `Successfully bought ${numberOfTickets} ${
+            numberOfTickets > 1 ? 'tickets' : 'ticket'
+          }`
+        );
+      } else {
+        context.setMessage('Insufficient funds');
+      }
+    },
+    [total]
+  );
 
   return (
     <div>
@@ -42,6 +65,8 @@ export default function Buy({ selectedRaffle }) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
+
+          handleSubmit(numberOfTickets);
         }}
       >
         <input
@@ -55,10 +80,7 @@ export default function Buy({ selectedRaffle }) {
         />
 
         <Centered>
-          <Total>
-            Total:{' '}
-            {context.toCurrency(numberOfTickets * selectedRaffle.ticketPrice)}
-          </Total>
+          <Total>Total: {context.toCurrency(total)}</Total>
         </Centered>
 
         <Centered>

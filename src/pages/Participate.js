@@ -82,7 +82,7 @@ export default function Host() {
       {context.isLoggedIn ? (
         <div>
           <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-            <Buy selectedRaffle={selectedRaffle} />
+            <Buy selectedRaffle={selectedRaffle} setIsOpen={setIsOpen} />
           </Modal>
 
           <Grid>

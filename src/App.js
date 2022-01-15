@@ -65,6 +65,22 @@ export default function App() {
     setCurrentUser(accountsArrayCopy[index]);
   };
 
+  const deductFunds = (amount) => {
+    const index = findUserIndex();
+
+    const accountsArrayCopy = [...accountsArray];
+    accountsArrayCopy[index].balance -= amount;
+
+    setAccountsArray(accountsArrayCopy);
+    setCurrentUser(accountsArrayCopy[index]);
+  };
+
+  const getBalance = () => {
+    const index = findUserIndex();
+
+    return accountsArray[index].balance;
+  };
+
   useEffect(() => {
     localStorage.isLoggedIn = isLoggedIn;
   }, [isLoggedIn]);
@@ -95,6 +111,8 @@ export default function App() {
         setCurrentUser,
         toCurrency,
         addFunds,
+        deductFunds,
+        getBalance,
       }}
     >
       {message ? <Toast message={message} /> : null}
