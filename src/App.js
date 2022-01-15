@@ -70,8 +70,6 @@ export default function App() {
     }
   };
 
-  console.log(rafflesArray);
-
   const addFunds = (amount) => {
     const index = findUserIndex();
 

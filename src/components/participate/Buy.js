@@ -44,7 +44,6 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
 
         const raffleIndex = context.findRaffleIndex(raffle.id);
 
-        console.log(raffleIndex);
         const rafflesArrayCopy = [...context.rafflesArray];
         rafflesArrayCopy[raffleIndex].ticketsSold += numberOfTickets;
 
