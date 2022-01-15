@@ -33,16 +33,16 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
 
   const total = useMemo(() => {
     return numberOfTickets * selectedRaffle.ticketPrice;
-  }, [numberOfTickets]);
+  }, [numberOfTickets, selectedRaffle.ticketPrice]);
 
   const handleSubmit = useCallback(
-    (numberOfTickets) => {
+    (numberOfTickets, raffle) => {
       if (total < context.getBalance()) {
         context.deductFunds(total);
 
         setIsOpen(false);
 
-        const raffleIndex = context.findRaffleIndex(selectedRaffle.id);
+        const raffleIndex = context.findRaffleIndex(raffle.id);
 
         console.log(raffleIndex);
         const rafflesArrayCopy = [...context.rafflesArray];
@@ -56,8 +56,8 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
             ticketsBought: numberOfTickets,
             purchasedBy: context.currentUser.email,
             raffle: {
-              title: selectedRaffle.title,
-              price: selectedRaffle.ticketPrice,
+              title: raffle.title,
+              price: raffle.ticketPrice,
             },
           },
         ]);
@@ -71,7 +71,7 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
         context.setMessage('Insufficient funds');
       }
     },
-    [total]
+    [total, setIsOpen, context]
   );
 
   return (
@@ -86,7 +86,7 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
         onSubmit={(e) => {
           e.preventDefault();
 
-          handleSubmit(numberOfTickets);
+          handleSubmit(numberOfTickets, selectedRaffle);
         }}
       >
         <input
