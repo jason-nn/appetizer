@@ -51,7 +51,6 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
         context.setRafflesArray(rafflesArrayCopy);
 
         context.setPurchasesArray([
-          ...context.purchasesArray,
           {
             ticketsBought: numberOfTickets,
             purchasedBy: context.currentUser.email,
@@ -60,6 +59,7 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
               ticketPrice: raffle.ticketPrice,
             },
           },
+          ...context.purchasesArray,
         ]);
 
         context.setMessage(
