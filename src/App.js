@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Login from './pages/Login';
@@ -10,7 +10,6 @@ import Toast from './components/shared/Toast';
 
 import { raffles } from './data/raffles';
 import { accounts } from './data/accounts';
-import { useMemo } from 'react/cjs/react.development';
 
 export const Context = createContext(null);
 
@@ -31,6 +30,8 @@ export default function App() {
       ? JSON.parse(localStorage.accountsArray)
       : accounts
   );
+
+  // const [purchasesArray, setPurchasesArray] = useState(initialState);
 
   const setAndClearMessage = (message) => {
     setMessage(null);
