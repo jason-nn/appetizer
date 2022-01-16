@@ -97,6 +97,7 @@ export default function Buy({ selectedRaffle, setIsOpen }) {
           onChange={(e) => {
             setNumberOfTickets(e.target.value);
           }}
+          required
         />
 
         <Centered>

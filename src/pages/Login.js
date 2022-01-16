@@ -90,7 +90,7 @@ export default function Login() {
 
             <div>
               <p>Email</p>
-              <input type="email" ref={emailRef} />
+              <input type="email" ref={emailRef} required />
             </div>
 
             <br />
@@ -98,7 +98,7 @@ export default function Login() {
 
             <div>
               <p>Password</p>
-              <input type="password" ref={passwordRef} />
+              <input type="password" ref={passwordRef} required />
             </div>
 
             <br />

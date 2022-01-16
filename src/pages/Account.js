@@ -73,7 +73,13 @@ export default function Account() {
                   );
                 }}
               >
-                <input type="number" step={0.01} min={0} ref={amountRef} />
+                <input
+                  type="number"
+                  step={0.01}
+                  min={0}
+                  ref={amountRef}
+                  required
+                />
 
                 <br />
                 <br />
