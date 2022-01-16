@@ -57,7 +57,7 @@ const Header = styled.div`
   font-size: 30px;
 `;
 
-export default function HostRaffle() {
+export default function HostRaffle({ setShowHostedRaffles }) {
   const context = useContext(Context);
 
   const [type, setType] = useState('cash');
@@ -83,6 +83,9 @@ export default function HostRaffle() {
       },
       ...context.rafflesArray,
     ]);
+
+    setShowHostedRaffles(true);
+    context.setMessage('Raffle successfully created');
   };
 
   return (
