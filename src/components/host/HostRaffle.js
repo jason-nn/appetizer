@@ -101,9 +101,6 @@ export default function HostRaffle({ setShowHostedRaffles }) {
           onSubmit={(e) => {
             e.preventDefault();
 
-            console.log(context.getBalance);
-            console.log(prizeRef.current.value);
-
             if (type === 'cash') {
               if (context.getBalance() < prizeRef.current.value) {
                 context.setMessage('Insufficient funds');
