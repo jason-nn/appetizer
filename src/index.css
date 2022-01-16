@@ -52,7 +52,8 @@ button:hover {
 input[type='text'],
 input[type='email'],
 input[type='password'],
-input[type='number'] {
+input[type='number'],
+select {
   border: 1px solid #ccc;
 
   font-family: 'CircularStd-Book', Helvetica, sans-serif;
@@ -65,7 +66,8 @@ input[type='number'] {
 input[type='text']:focus,
 input[type='email']:focus,
 input[type='password']:focus,
-input[type='number']:focus {
+input[type='number']:focus,
+select:focus {
   outline: none;
 }
 
