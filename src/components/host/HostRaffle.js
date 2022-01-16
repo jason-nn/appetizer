@@ -71,6 +71,7 @@ export default function HostRaffle({ setShowHostedRaffles }) {
     const id = context.rafflesArray[context.rafflesArray.length - 1].id + 1;
 
     context.setRafflesArray([
+      ...context.rafflesArray,
       {
         id,
         title: titleRef.current.value,
@@ -81,7 +82,6 @@ export default function HostRaffle({ setShowHostedRaffles }) {
         ticketsSold: 0,
         hostedBy: context.currentUser.email,
       },
-      ...context.rafflesArray,
     ]);
 
     setShowHostedRaffles(true);
@@ -100,7 +100,20 @@ export default function HostRaffle({ setShowHostedRaffles }) {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            handleSubmit();
+
+            console.log(context.getBalance);
+            console.log(prizeRef.current.value);
+
+            if (type === 'cash') {
+              if (context.getBalance() < prizeRef.current.value) {
+                context.setMessage('Insufficient funds');
+              } else {
+                handleSubmit();
+                context.deductFunds(prizeRef.current.value);
+              }
+            } else {
+              handleSubmit();
+            }
           }}
         >
           <label>Title</label>
