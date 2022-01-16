@@ -3,18 +3,18 @@ export const accounts = [
     email: 'jason@parapol.ph',
     password: 'password',
     name: 'Jason Ho',
-    balance: 10000,
+    balance: 230000,
   },
   {
     email: 'alex@parapol.ph',
     password: 'password',
     name: 'Alex Pasoquin',
-    balance: 12000,
+    balance: 280000,
   },
   {
     email: 'carl@parapol.ph',
     password: 'password',
     name: 'Carl Rosales',
-    balance: 80000,
+    balance: 200000,
   },
 ];

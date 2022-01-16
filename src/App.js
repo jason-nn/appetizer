@@ -49,8 +49,8 @@ export default function App() {
   const toCurrency = (num) => {
     return Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'PHP',
-      minimumFractionDigits: 2,
+      currency: 'KRW',
+      // minimumFractionDigits: 2,
     }).format(num);
   };
 

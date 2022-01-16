@@ -5,7 +5,7 @@ export const purchases = [
     purchasedOn: Date.now(),
     raffle: {
       title: 'Appetizer Raffle',
-      ticketPrice: 500,
+      ticketPrice: 10000,
     },
   },
   {
@@ -14,7 +14,7 @@ export const purchases = [
     purchasedOn: Date.now(),
     raffle: {
       title: 'Main Course Raffle',
-      ticketPrice: 400,
+      ticketPrice: 8000,
     },
   },
   {
@@ -23,7 +23,7 @@ export const purchases = [
     purchasedOn: Date.now(),
     raffle: {
       title: 'Appetizer Raffle',
-      ticketPrice: 500,
+      ticketPrice: 10000,
     },
   },
   {
@@ -32,7 +32,7 @@ export const purchases = [
     purchasedOn: Date.now(),
     raffle: {
       title: 'Appetizer Raffle',
-      ticketPrice: 500,
+      ticketPrice: 10000,
     },
   },
 ];
