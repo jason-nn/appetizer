@@ -3,7 +3,7 @@ export const accounts = [
     email: 'jason@parapol.ph',
     password: 'password',
     name: 'Jason Ho',
-    balance: 230000,
+    balance: 1000000,
   },
   {
     email: 'alex@parapol.ph',
